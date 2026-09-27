@@ -19,7 +19,7 @@ const FEATURES = [
   {
     icon: 'auto_awesome',
     title: 'Quests generadas por IA',
-    body: 'Subí un PDF o tus apuntes y Google Gemini arma quizzes interactivos automáticamente.',
+    body: 'Subí un PDF o tus apuntes y un LLM en Amazon Bedrock arma quizzes interactivos automáticamente.',
   },
   {
     icon: 'military_tech',
@@ -40,10 +40,13 @@ const FEATURES = [
 
 const STACK = [
   'NestJS 11',
-  'PostgreSQL 16 + TypeORM',
   'Socket.IO',
-  'Google Gemini API',
+  'Amazon Bedrock',
+  'PostgreSQL 16 + TypeORM',
+  'DynamoDB',
+  'Amazon S3',
   'MarkItDown (PDF → texto)',
+  'AWS Lightsail + Caddy',
   'React 19 + Vite',
   'Tailwind CSS 4',
   'Zustand',
@@ -162,7 +165,8 @@ export default function Home() {
           <h2 className="mb-3 font-display text-3xl font-bold">Tiempo real + IA generativa</h2>
           <p className="mx-auto mb-10 max-w-2xl text-white/80">
             Un backend NestJS con WebSockets sostiene el matchmaking y el chat en vivo, mientras
-            Google Gemini convierte tus apuntes en quests jugables.
+            un LLM en Amazon Bedrock convierte tus apuntes en quests jugables. Todo corre en AWS:
+            Lightsail para la API, DynamoDB para los quizzes y S3 para los archivos.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {STACK.map((item) => (
